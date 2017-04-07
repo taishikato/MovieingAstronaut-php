@@ -1,0 +1,39 @@
+.topWrapperMargin {
+    margin-top: 100px;
+}
+
+.list-pic {
+    display: table-cell;
+}
+
+.list-pic img {
+    height: 300px;
+}
+
+.list-desc {
+    display: table-cell;
+}
+
+.item-padding {
+    margin-bottom: 25px;
+}
+
+.item-detail-image .img-thumbnail {
+    height: 220px;
+}
+
+.item-detail-category-item {
+    color: gray;
+}
+
+@media (min-width: 544px) {
+    .smallContainer {
+        max-width: 576px;
+    }
+}
+
+@media (min-width: 48em) {
+    .smallContainer {
+        max-width: 46rem;
+    }
+}
