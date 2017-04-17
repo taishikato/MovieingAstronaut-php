@@ -19,7 +19,7 @@
                 </a>
                 <ul class="nav navbar-nav pull-right">
                     <li class="nav-item">
-                        <a href="#" class="nav-link" data-toggle="modal" data-target="#signUpModal">Sign Up</a>
+                        <a id="signupWithFacebookBtn">Sign Up With Facebook</a>
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link" data-toggle="modal" data-target="#loginModal">Log In</a>
@@ -28,5 +28,4 @@
         </div>
     </nav>
     <?php echo $this->fetch('content'); ?>
-</body>
-</html>
+<?php echo $this->element('footer'); ?>

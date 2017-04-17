@@ -1,11 +1,10 @@
 <?php
 
-App::uses('Controller', 'Controller');
+App::uses('AppController', 'Controller');
 
 class SearchesController extends AppController {
     public $uses = array();
 
-    public $layout = 'custom';
     public $baseUrl = 'http://www.omdbapi.com';
 
     public function index()
