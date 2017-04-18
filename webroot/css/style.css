@@ -26,6 +26,16 @@
     color: gray;
 }
 
+.normalCard {
+    float: none;
+    width: 100%;
+}
+
+.card, .card-columns {
+    border: 0;
+    background-color: #ffffff;
+}
+
 @media (min-width: 544px) {
     .smallContainer {
         max-width: 576px;

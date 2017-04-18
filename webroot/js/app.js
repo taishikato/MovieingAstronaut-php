@@ -26,13 +26,13 @@ $(function(){
     form.method = 'POST';
     form.action = url;
     var tokenElm = document.createElement('input');
-    tokenElm.name = 'data[User][token_facebook]';
+    tokenElm.name = 'data[User][facebook_token]';
     tokenElm.value = token;
     var emailElm = document.createElement('input');
     emailElm.name = 'data[User][email]';
     emailElm.value = email;
     var uidElm = document.createElement('input');
-    uidElm.name = 'data[User][id_facebook]';
+    uidElm.name = 'data[User][facebook_id]';
     uidElm.value = uid;
     var fbAuthElm = document.createElement('input');
     fbAuthElm.name = 'data[User][isFacebookAuth]';
