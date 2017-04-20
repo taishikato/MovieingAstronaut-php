@@ -1,7 +1,8 @@
 <div class="container topWrapperMargin smallContainer">
     <div class="row">
-        <form action="./tops" method="get" enctype="multipart/form-data" accept-charset="utf-8">
-            <input type="text" name="title">
+        <form class="form-inline" action="./tops" method="get" enctype="multipart/form-data" accept-charset="utf-8">
+            <label class="sr-only" for="inlineFormInput">Search</label>
+            <input type="search" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Reign Over Me" name="title">
             <input type="submit" name="">
         </form>
         <?php if (!empty($result)): ?>
