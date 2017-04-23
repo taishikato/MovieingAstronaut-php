@@ -1,12 +1,23 @@
 <div class="container topWrapperMargin smallContainer">
     <div class="row">
         <?php if (!empty($result)): ?>
-            <?php //var_dump($result); ?>
-            <div class="item-detail-image item-padding">
+            <div class="item-detail-image item-padding textAlign">
                 <img src="<?php echo $result['Poster']; ?>" class="img-thumbnail center-block" height="220">
             </div>
-            <div class="item-padding">
-                <a class="btn btn-success btn-lg center-block" href="#" role="button">Add To Your List</a>
+            <div class="item-padding textAlign">
+                <?php echo $this->Form->create('SeenList', array(
+                    'type' => 'post',
+                    'url' => array('controller' => 'lists', 'action' => 'add'),
+                    )
+                ); ?>
+                <?php echo $this->Form->hidden('title', array('value' => $result['Title'])); ?>
+                <?php echo $this->Form->hidden('imdb_id', array('value' => $result['imdbID'])); ?>
+                <?php echo $this->Form->hidden('user_id', array('value' => null)); ?>
+                <?php echo $this->Form->end(array(
+                    "label" => 'Add To Your List',
+                    'div'   => false,
+                    'class' => 'btn btn-secondary'
+                )); ?>
             </div>
             <div class="item-padding">
                 <?php echo $result['Plot']; ?>
@@ -24,18 +35,6 @@
                 <div>
                     <span class="item-detail-category-item">Genre:</span> <?php echo $result['Genre']; ?>
                 </div>
-                <!--
-                <dl>
-                    <dt>Director</dt>
-                    <dd><?php echo $result['Director']; ?></dd>
-                    <dt>Year</dt>
-                    <dd><?php echo $result['Year']; ?></dd>
-                    <dt>Actors</dt>
-                    <dd><?php echo $result['Actors']; ?></dd>
-                    <dt>Genre</dt>
-                    <dd><?php echo $result['Genre']; ?></dd>
-                </dl>
-                -->
             </div>
         <?php endif; ?>
     </div>

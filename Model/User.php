@@ -3,7 +3,7 @@
 App::uses('AppModel', 'Model');
 
 class User extends AppModel {
-    public $name = "User";
+    public $name = 'User';
 
     /**
      * emailでユーザーの存在確認
