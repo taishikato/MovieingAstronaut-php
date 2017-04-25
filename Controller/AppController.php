@@ -32,6 +32,42 @@ App::uses('Controller', 'Controller');
  */
 class AppController extends Controller {
     public $layout = 'custom';
+    public $isLoggedIn = false;
+    public $loginUser;
+
+    public $components = array(
+        'Flash',
+        'Auth' => array(
+            'loginRedirect' => array(
+                'controller' => 'tops',
+                'action'     => 'index'
+            ),
+            'logoutRedirect' => array(
+                'controller' => 'tops',
+                'action'     => 'index'
+            ),
+            'authenticate' => array(
+                'Form' => array(
+                    'passwordHasher' => 'Blowfish',
+                    'fields' => array('username' => 'email')
+                )
+            )
+        )
+    );
+
+    public function beforeFilter()
+    {
+        if ($this->Auth->loggedIn() === true) {
+            $this->isLoggedIn = true;
+        }
+
+        $this->set('isLoggedIn', $this->isLoggedIn);
+
+        // ログインユーザー情報送信
+        //$this->loginUser = $this->Auth->user();
+        //$this->set('loginUser', $this->loginUser);
+    }
+
     public function execApi($requestUrl)
     {
         $response = file_get_contents($requestUrl);

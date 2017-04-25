@@ -26,9 +26,13 @@
                 <li class="nav-item">
                     <a href="#" class="nav-link" data-toggle="modal" data-target="#loginModal">Log In</a>
                 </li>
+                <li class="nav-item">
+                    <a href="./users/logout" class="nav-link" data-toggle="modal" data-target="#loginModal">Log Out</a>
+                </li>
             </ul>
         </div>
     </div>
 </nav>
+<?php var_dump(AuthComponent::user()); ?>
     <?php echo $this->fetch('content'); ?>
 <?php echo $this->element('footer'); ?>

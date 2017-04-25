@@ -7,6 +7,12 @@ class TopsController extends AppController {
 
     public $layout = 'custom';
 
+    public function beforeFilter()
+    {
+        parent::beforeFilter();
+        $this->Auth->allow('index');
+    }
+
     public function index()
     {
         $baseUrl = 'http://www.omdbapi.com';

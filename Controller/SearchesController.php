@@ -7,6 +7,12 @@ class SearchesController extends AppController {
 
     public $baseUrl = 'http://www.omdbapi.com';
 
+    public function beforeFilter()
+    {
+        parent::beforeFilter();
+        $this->Auth->allow('index', 'showList', 'show');
+    }
+
     public function index()
     {
         if (!empty($_GET['title'])) {
