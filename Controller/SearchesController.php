@@ -38,5 +38,9 @@ class SearchesController extends AppController {
         $requestUrl = $this->baseUrl . '/?i=' . $id;
         $result = $this->execApi($requestUrl);
         $this->set(compact('result'));
+
+        // 表示している映画が既にリストに登録してあるか確認
+        $resitered = $this->SeenList->findByImdbId($result['imdbID']);
+        $this->set(compact('resitered'));
     }
 }

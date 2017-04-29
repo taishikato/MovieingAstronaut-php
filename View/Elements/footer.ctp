@@ -12,6 +12,7 @@
         firebase.initializeApp(config);
     </script>
     <?php echo $this->Html->script('jquery.min.js'); ?>
+    <?php echo $this->Html->script('bootstrap.min.js'); ?>
     <?php echo $this->Html->script('config.js'); ?>
     <?php echo $this->Html->script('app.js'); ?>
 </body>

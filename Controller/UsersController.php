@@ -9,15 +9,14 @@ class UsersController extends AppController {
     public function beforeFilter()
     {
         parent::beforeFilter();
-        $this->Auth->allow('signupWithFacebook', 'login', 'logout', 'index');
+        $this->Auth->allow('signupWithFacebook', 'loginWithFacebook', 'login', 'logout', 'index');
     }
 
     public function signupWithFacebook()
     {
         if (!empty($this->User->checkUserExistence($this->request->data['User']['email']))) {
             // メールアドレスでユーザー存在チェック
-            echo 'メアドあり';
-            return false;
+            return $this->redirect($this->topRedirectOption);
         }
 
         $this->User->create();
@@ -27,10 +26,57 @@ class UsersController extends AppController {
 
         // Save to Database
         if ($this->User->save($this->request->data)) {
-            $this->Auth->login($this->request->data);
-            $this->redirect($this->Auth->redirect());
+            // Get User Data
+            $userData = $this->User->checkUserExistence($this->request->data['User']['email']);
+            $this->Auth->login($userData);
+
         }
 
+        return $this->redirect($this->Auth->redirectUrl());
+    }
+
+    public function loginWithFacebook()
+    {
+        if (!$this->request->is('post')) {
+            return $this->redirect($this->topRedirectOption);
+        }
+
+        // Facebookログインじゃない場合
+        if ($this->request->data('User.facebook_id') === null) {
+            return $this->redirect($this->topRedirectOption);
+        }
+
+        // ユーザーが存在しない場合
+        $userData = $this->User->findByFacebookId($this->request->data('User.facebook_id'));
+        if (empty($userData)) {
+            return $this->redirect($this->topRedirectOption);
+        }
+
+        // ログイン
+        if ($this->Auth->login($userData)) {
+            /**
+             *  ユーザーのFacebook関連情報更新
+             */
+            $this->User->id = $this->Auth->user('id');
+            // 更新するカラム
+            $fieldList = array(
+                'facebook_token',
+                'facebook_id'
+            );
+            $data = array(
+                'User' => array(
+                    'facebook_token' => $this->request->data('User.facebook_token'),
+                    'facebook_id'    => $this->request->data('User.facebook_id')
+                )
+            );
+
+            // 情報をデータベースに保存
+            $this->User->save($data, array(
+                'fieldList' => $fieldList
+            ));
+        }
+
+        return $this->redirect($this->Auth->redirectUrl());
     }
 
     public function login() {

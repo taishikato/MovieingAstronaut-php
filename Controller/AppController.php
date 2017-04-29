@@ -34,6 +34,10 @@ class AppController extends Controller {
     public $layout = 'custom';
     public $isLoggedIn = false;
     public $loginUser;
+    public $topRedirectOption = array(
+        'controller' => 'tops',
+        'action'     => 'index'
+    );
 
     public $components = array(
         'Flash',
@@ -64,8 +68,8 @@ class AppController extends Controller {
         $this->set('isLoggedIn', $this->isLoggedIn);
 
         // ログインユーザー情報送信
-        //$this->loginUser = $this->Auth->user();
-        //$this->set('loginUser', $this->loginUser);
+        $this->loginUser = $this->Auth->user();
+        $this->set('loginUser', $this->loginUser);
     }
 
     public function execApi($requestUrl)

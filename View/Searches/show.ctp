@@ -12,12 +12,25 @@
                 ); ?>
                 <?php echo $this->Form->hidden('title', array('value' => $result['Title'])); ?>
                 <?php echo $this->Form->hidden('imdb_id', array('value' => $result['imdbID'])); ?>
-                <?php echo $this->Form->hidden('user_id', array('value' => null)); ?>
-                <?php echo $this->Form->end(array(
-                    "label" => 'Add To Your List',
-                    'div'   => false,
-                    'class' => 'btn btn-secondary'
-                )); ?>
+
+                <?php
+                $doneUrl = (empty($_SERVER["HTTPS"]) ? "http://" : "https://") . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
+                echo $this->Form->hidden('done', array('value' => $doneUrl));
+                ?>
+                <?php if ($isLoggedIn === true) {
+                    if (!empty($resitered)) {
+                        $lavel = 'Added';
+                        echo $lavel;
+                    } else {
+                        $lavel = 'Add To Your List';
+                        echo $this->Form->end(array(
+                            'label' => $lavel,
+                            'div'   => false,
+                            'class' => 'btn btn-secondary'
+                        ));
+                    }
+                }
+                ?>
             </div>
             <div class="item-padding">
                 <?php echo $result['Plot']; ?>

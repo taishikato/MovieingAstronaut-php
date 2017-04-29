@@ -12,7 +12,17 @@ class ListsController extends AppController {
 
             return false;
         }
-        var_dump($this->request->data);
+
+        $doneUrl = $this->request->data['SeenList']['done'];
+        // ユーザーID取得
+        $this->request->data['SeenList']['user_id'] = $this->Auth->user('User.id');
+        unset($this->request->data['SeenList']['done']);
+        // リストデータ保存
+        $this->SeenList->create();
+        $this->SeenList->save($this->request->data);
+
+        // 元のページへリダイレクト
+        $this->redirect($doneUrl);
     }
 
     public function delete()

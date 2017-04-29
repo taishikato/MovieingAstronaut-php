@@ -17,22 +17,19 @@
         <button class="pull-xs-right navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">☰</button>
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" href="#">filmstar</a>
+        <?php echo $this->Html->link(
+            'filmstar',
+            array(
+                'controller' => 'tops',
+                'action'     => 'index',
+                'full_base'  => true
+            ),
+            array('class' => 'navbar-brand')
+        ); ?>
         <div class="collapse navbar-toggleable-md" id="navbarResponsive">
-            <ul class="nav navbar-nav pull-xs-right">
-                <li class="nav-item">
-                    <a class="nav-link" id="signupWithFacebookBtn" href="#">Sign Up With Facebook</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link" data-toggle="modal" data-target="#loginModal">Log In</a>
-                </li>
-                <li class="nav-item">
-                    <a href="./users/logout" class="nav-link" data-toggle="modal" data-target="#loginModal">Log Out</a>
-                </li>
-            </ul>
+            <?php echo $this->element('nav_menu'); ?>
         </div>
     </div>
 </nav>
-<?php var_dump(AuthComponent::user()); ?>
     <?php echo $this->fetch('content'); ?>
 <?php echo $this->element('footer'); ?>
