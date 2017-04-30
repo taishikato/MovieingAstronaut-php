@@ -1,9 +1,18 @@
 <ul class="nav navbar-nav pull-xs-right">
     <?php if ($isLoggedIn === true): ?>
         <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">User</a>
+            <?php $userName = AuthComponent::user('User.username') ?: 'User'; ?>
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true"><?php echo $userName; ?></a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a href="" class="dropdown-item">Profile</a>
+                <?php echo $this->Html->link(
+                    'Edit Profile',
+                    array(
+                        'controller' => 'users',
+                        'action'     => 'edit',
+                        'full_base'  => true
+                    ),
+                    array('class' => 'dropdown-item')
+                ); ?>
                 <?php echo $this->Html->link(
                     'Log Out',
                     array(

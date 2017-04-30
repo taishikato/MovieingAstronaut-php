@@ -57,7 +57,7 @@ class UsersController extends AppController {
             /**
              *  ユーザーのFacebook関連情報更新
              */
-            $this->User->id = $this->Auth->user('id');
+            $this->User->id = $this->Auth->user('User.id');
             // 更新するカラム
             $fieldList = array(
                 'facebook_token',
@@ -77,6 +77,43 @@ class UsersController extends AppController {
         }
 
         return $this->redirect($this->Auth->redirectUrl());
+    }
+
+    public function edit()
+    {
+        if (!$this->request->is('post')) {
+            // フォームの値をDBから取得
+            $userData = $this->User->findById($this->Auth->user('User.id'), array(
+                 'fieldList'  => 'username'
+            ));
+            $this->request->data = h($userData);
+
+            return true;
+        }
+
+        if (empty($this->request->data)) {
+            return $this->redirect($this->topRedirectOption);
+        }
+
+        /*
+         * 情報更新
+         */
+        $this->User->id = $this->Auth->user('User.id');
+        $fieldList = array('username');
+        $this->User->save($this->request->data,
+            array('fieldList' => $fieldList)
+        );
+        // フォームの値をDBから取得
+        $userData = $this->User->findById($this->Auth->user('User.id'), array('id', 'username'));
+        $this->request->data = h($userData);
+
+        // ログインし直し
+        $this->Auth->login($userData);
+
+        return $this->redirect(array(
+            'controller' => 'users',
+            'action'    => 'edit'
+        ));
     }
 
     public function login() {
