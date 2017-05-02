@@ -2,27 +2,41 @@
     <?php if ($isLoggedIn === true): ?>
         <li class="nav-item dropdown">
             <?php $userName = AuthComponent::user('User.username') ?: 'User'; ?>
-            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true"><?php echo $userName; ?></a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li class="nav-item">
                 <?php echo $this->Html->link(
-                    'Edit Profile',
+                    'List',
                     array(
-                        'controller' => 'users',
-                        'action'     => 'edit',
+                        'controller' => 'lists',
+                        'action'     => 'showSeenList',
+                        $userName,
                         'full_base'  => true
                     ),
-                    array('class' => 'dropdown-item')
+                    array('class' => 'nav-link')
                 ); ?>
-                <?php echo $this->Html->link(
-                    'Log Out',
-                    array(
-                        'controller' => 'users',
-                        'action'     => 'logout',
-                        'full_base'  => true
-                    ),
-                    array('class' => 'dropdown-item')
-                ); ?>
-            </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true"><?php echo $userName; ?></a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <?php echo $this->Html->link(
+                        'Edit Profile',
+                        array(
+                            'controller' => 'users',
+                            'action'     => 'edit',
+                            'full_base'  => true
+                        ),
+                        array('class' => 'dropdown-item')
+                    ); ?>
+                    <?php echo $this->Html->link(
+                        'Log Out',
+                        array(
+                            'controller' => 'users',
+                            'action'     => 'logout',
+                            'full_base'  => true
+                        ),
+                        array('class' => 'dropdown-item')
+                    ); ?>
+                </div>
+            </li>
         </li>
     <?php else: ?>
         <li class="nav-item">

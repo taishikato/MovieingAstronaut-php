@@ -22,7 +22,7 @@
             <?php echo $this->Form->end(array(
                 "label" => 'Search',
                 'div'   => false,
-                'class' => 'btn btn-primary'
+                'class' => 'btn btn-outline-primary'
             )); ?>
         </div>
     </div>

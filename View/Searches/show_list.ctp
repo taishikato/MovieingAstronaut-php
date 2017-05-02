@@ -1,6 +1,10 @@
 <div class="container topWrapperMargin smallContainer">
     <div class="row">
-        <?php if (!empty($result)): ?>
+        <?php if ($result['Response'] === 'False'): ?>
+            <div class="textAlign">
+                Movie not found!
+            </div>
+        <?php else: ?>
             <div class="media">
                 <div class="media-left media-middle">
                     <a href="./show/<?php echo $result['imdbID']; ?>">
