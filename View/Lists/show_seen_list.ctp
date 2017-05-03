@@ -8,16 +8,34 @@
             <?php foreach ($movieData as $movie): ?>
                 <div class="media">
                     <div class="media-left media-middle">
-                        <a href="./show/<?php echo $movie['imdbID']; ?>">
-                            <img src="<?php echo $movie['Poster']; ?>" class="media-object" height="220">
-                        </a>
+                        <?php echo $this->Html->link(
+                            $this->Html->image($movie['Poster'], array('class' => 'media-object', 'height' => 220)),
+                            array(
+                                'controller' => 'searches',
+                                'action'     => 'show',
+                                $movie['imdbID'],
+                                'full_base'  => true
+                            ),
+                            array('escape' => false)
+                        ); ?>
                     </div>
                     <div class="media-body">
-                        <a href="./show/<?php echo $movie['imdbID']; ?>">
-                            <h3 class="media-heading"><?php echo $movie['Title']; ?></h3>
-                            <h4><?php echo $movie['Year']; ?></h4>
-                            <h4>Actors: <?php echo $movie['Actors']; ?></h4>
-                        </a>
+                        <?php
+                        $linkCont = <<< eof
+                            <h3 class="media-heading">{$movie['Title']}</h3>
+                            <h4>{$movie['Year']}</h4>
+                            <h4>Actors: {$movie['Actors']}</h4>
+eof;
+                        echo $this->Html->link(
+                            $linkCont,
+                            array(
+                                'controller' => 'searches',
+                                'action'     => 'show',
+                                $movie['imdbID'],
+                                'full_base'  => true
+                            ),
+                            array('escape' => false)
+                        ); ?>
                     </div>
                 </div>
             <?php endforeach; ?>
