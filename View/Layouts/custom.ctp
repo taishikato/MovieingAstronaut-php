@@ -31,5 +31,8 @@
         </div>
     </div>
 </nav>
+<div class="container topWrapperMargin smallContainer">
+    <?php echo $this->Flash->render('login_result') ?>
     <?php echo $this->fetch('content'); ?>
+</div>
 <?php echo $this->element('footer'); ?>

@@ -4,6 +4,8 @@ App::uses('AppController', 'Controller');
 App::uses('BlowfishPasswordHasher', 'Controller/Component/Auth');
 
 class UsersController extends AppController {
+    const LOGIN_ERROR_MSG = 'Failed to login😣';
+
     public $uses = array('User');
 
     public function beforeFilter()
@@ -43,12 +45,20 @@ class UsersController extends AppController {
 
         // Facebookログインじゃない場合
         if ($this->request->data('User.facebook_id') === null) {
+            $this->Flash->error(self::LOGIN_ERROR_MSG,
+                array('key' => 'login_result')
+            );
+
             return $this->redirect($this->topRedirectOption);
         }
 
         // ユーザーが存在しない場合
         $userData = $this->User->findByFacebookId($this->request->data('User.facebook_id'));
         if (empty($userData)) {
+            $this->Flash->error(self::LOGIN_ERROR_MSG,
+                array('key' => 'login_result')
+            );
+
             return $this->redirect($this->topRedirectOption);
         }
 
@@ -74,6 +84,10 @@ class UsersController extends AppController {
             $this->User->save($data, array(
                 'fieldList' => $fieldList
             ));
+        } else {
+            $this->Flash->error(self::LOGIN_ERROR_MSG,
+                array('key' => 'login_result')
+            );
         }
 
         return $this->redirect($this->Auth->redirectUrl());
