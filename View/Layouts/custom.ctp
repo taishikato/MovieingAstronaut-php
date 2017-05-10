@@ -17,15 +17,9 @@
         <button class="pull-xs-right navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">☰</button>
             <span class="navbar-toggler-icon"></span>
         </button>
-        <?php echo $this->Html->link(
-            'Red Eyes Movie',
-            array(
-                'controller' => 'tops',
-                'action'     => 'index',
-                'full_base'  => true
-            ),
-            array('class' => 'navbar-brand')
-        ); ?>
+        <a class="navbar-brand" href="<?php echo $this->Html->url("/"); ?>">
+            <?php echo $this->Html->image('logo.png', array('alt' => 'RED EYS MOVIE', 'width' => '130px')); ?>
+        </a>
         <div class="collapse navbar-toggleable-md" id="navbarResponsive">
             <?php echo $this->element('nav_menu'); ?>
         </div>
