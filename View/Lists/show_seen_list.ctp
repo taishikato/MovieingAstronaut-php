@@ -24,7 +24,7 @@
                         <h3 class="media-heading">{$movie['Title']}</h3>
                         <h4>{$movie['Year']}</h4>
                         <h4>Actors: {$movie['Actors']}</h4>
-
+eof;
                     echo $this->Html->link(
                         $linkCont,
                         array(
