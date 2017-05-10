@@ -1,15 +1,15 @@
-    <script src="https://www.gstatic.com/firebasejs/3.7.8/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
     <script>
-        // Initialize Firebase
-        var config = {
-            apiKey: "AIzaSyDy-A5NBOCvoNi2vyxNaMaVKZxdDqGmu14",
-            authDomain: "filmstar-5e1ab.firebaseapp.com",
-            databaseURL: "https://filmstar-5e1ab.firebaseio.com",
-            projectId: "filmstar-5e1ab",
-            storageBucket: "filmstar-5e1ab.appspot.com",
-            messagingSenderId: "899517705502"
-        };
-        firebase.initializeApp(config);
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyD2BYSw7KUh4ZmdKl1bYUZuTJozU_9E_U0",
+        authDomain: "redeyesmovie-7aba5.firebaseapp.com",
+        databaseURL: "https://redeyesmovie-7aba5.firebaseio.com",
+        projectId: "redeyesmovie-7aba5",
+        storageBucket: "redeyesmovie-7aba5.appspot.com",
+        messagingSenderId: "899774704753"
+      };
+      firebase.initializeApp(config);
     </script>
     <?php echo $this->Html->script('jquery.min.js'); ?>
     <?php echo $this->Html->script('bootstrap.min.js'); ?>

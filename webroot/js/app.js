@@ -8,7 +8,7 @@ $(function(){
       var user = result.user;
       var uid  = user.providerData[0].uid;
       var email = user.email;
-      var url  = filmstarConfig.signupWithFacebookUrl;
+      var url  = redeyesmovieConfig.signupWithFacebookUrl;
       postForFacebook(token, email, uid, url);
 
     }).catch(function(error) {
@@ -31,7 +31,7 @@ $(function(){
       var user = result.user;
       var uid  = user.providerData[0].uid;
       var email = user.email;
-      var url = filmstarConfig.loginWithFacebookUrl;
+      var url = redeyesmovieConfig.loginWithFacebookUrl;
       postForFacebookLogin(token, email, uid, url);
 
     }).catch(function(error) {

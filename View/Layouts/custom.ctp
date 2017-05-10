@@ -18,7 +18,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <?php echo $this->Html->link(
-            'filmstar',
+            'Red Eyes Movie',
             array(
                 'controller' => 'tops',
                 'action'     => 'index',
