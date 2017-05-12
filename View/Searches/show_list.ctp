@@ -1,9 +1,5 @@
 <div class="row">
-    <?php if ($result['Response'] === 'False'): ?>
-        <div class="textAlign">
-            Movie not found!
-        </div>
-    <?php else: ?>
+    <?php if ($result['Response'] === 'True'): ?>
     <div class="card card-block normalCard">
         <div class="media">
             <div class="media-left media-middle">
@@ -20,5 +16,9 @@
             </div>
         </div>
     </div>
+    <?php else: ?>
+        <div class="textAlign">
+            Movie not found!
+        </div>
     <?php endif; ?>
 </div>

@@ -23,12 +23,15 @@ class SearchesController extends AppController {
     function showList()
     {
         $baseUrl = 'http://www.omdbapi.com';
+        $result['Response'] = 'False';
         if (!empty($_GET['title'])) {
+            $result = array();
             $requestUrl = $baseUrl . '/?t=' . urlencode($_GET['title']);
             $response = file_get_contents($requestUrl);
             $result = json_decode($response, true);
-            $this->set(compact('result'));
         }
+
+        $this->set(compact('result'));
     }
 
     public function show($id = null)
