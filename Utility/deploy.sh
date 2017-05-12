@@ -7,4 +7,4 @@ mv -v ./config.js ../webroot/js/
 echo 'htaccess設置'
 mv -v ./htaccess ../../.htaccess
 mv -v ./app_htaccess ../.htaccess
-mv -v ./webroot_htaccess ../webroot/..htaccess
+mv -v ./webroot_htaccess ../webroot/.htaccess
