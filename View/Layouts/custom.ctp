@@ -18,7 +18,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <a class="navbar-brand" href="<?php echo $this->Html->url("/"); ?>">
-            <?php echo $this->Html->image('logo.png', array('alt' => 'RED EYS MOVIE', 'width' => '130px')); ?>
+            <?php echo $this->Html->image('logo.png', array('alt' => 'MOVIEING ASTRONAUT', 'width' => '130px')); ?>
         </a>
         <div class="collapse navbar-toggleable-md" id="navbarResponsive">
             <?php echo $this->element('nav_menu'); ?>
