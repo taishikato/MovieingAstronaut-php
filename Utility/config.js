@@ -1,4 +1,4 @@
-var redeyesmovieConfig = redeyesmovieConfig || {};
-redeyesmovieConfig.signupWithFacebookUrl  = 'http://redeyesmovie.life/users/signupWithFacebook';
-redeyesmovieConfig.loginWithFacebookUrl   = 'http://redeyesmovie.life/users/loginWithFacebook';
-redeyesmovieConfig.connectWithFacebookUrl = 'http://redeyesmovie.life/authentications/facebook';
+var movieingastronautConfig = movieingastronautConfig || {};
+movieingastronautConfig.signupWithFacebookUrl  = 'http://movieingastronaut.com/users/signupWithFacebook';
+movieingastronautConfig.loginWithFacebookUrl   = 'http://movieingastronaut.com/users/loginWithFacebook';
+movieingastronautConfig.connectWithFacebookUrl = 'http://movieingastronaut.com/authentications/facebook';

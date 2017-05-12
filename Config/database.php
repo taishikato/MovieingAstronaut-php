@@ -72,7 +72,7 @@ class DATABASE_CONFIG {
 		'host' => 'localhost',
 		'login' => 'root',
 		'password' => 'root',
-		'database' => 'redeyesmovie',
+		'database' => 'movieing_astronaut',
 		'prefix' => '',
 		'encoding' => 'utf8',
 	);

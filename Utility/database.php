@@ -72,7 +72,7 @@ class DATABASE_CONFIG {
 		'host' => 'mysql404.db.sakura.ne.jp',
 		'login' => 'html5-css3',
 		'password' => 'umr8xk2sts',
-		'database' => 'html5-css3_redeyesmovie',
+		'database' => 'html5-css3_movieing_astronaut',
 		'prefix' => '',
 		'encoding' => 'utf8',
 	);
