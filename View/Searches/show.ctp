@@ -1,4 +1,5 @@
 <div class="row">
+    <div class="card card-block normalCard">
     <?php if (!empty($result)): ?>
         <div class="item-detail-image item-padding textAlign">
             <img src="<?php echo $result['Poster']; ?>" class="img-thumbnail center-block" height="220">
@@ -49,4 +50,5 @@
             </div>
         </div>
     <?php endif; ?>
+    </div>
 </div>

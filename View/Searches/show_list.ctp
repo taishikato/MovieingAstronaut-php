@@ -4,6 +4,7 @@
             Movie not found!
         </div>
     <?php else: ?>
+    <div class="card card-block normalCard">
         <div class="media">
             <div class="media-left media-middle">
                 <a href="./show/<?php echo $result['imdbID']; ?>">
@@ -18,5 +19,6 @@
                 </a>
             </div>
         </div>
+    </div>
     <?php endif; ?>
 </div>

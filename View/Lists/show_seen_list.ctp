@@ -4,6 +4,7 @@
             Movie not found!
         </div>
     <?php else: ?>
+    <div class="card card-block normalCard">
         <?php foreach ($movieData as $movie): ?>
             <div class="media">
                 <div class="media-left media-middle">
@@ -38,5 +39,6 @@ eof;
                 </div>
             </div>
         <?php endforeach; ?>
+    </div>
     <?php endif; ?>
 </div>
