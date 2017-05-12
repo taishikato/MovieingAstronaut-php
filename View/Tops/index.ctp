@@ -12,7 +12,7 @@
             'id'    => 'inlineFormInput',
             'placeholder' => 'Reign Over Me',
             'type' => 'search',
-            'div'  => false,
+            'div'  => array('class' => 'mb-2'),
             'label' => array(
                 'text' =>'Search Movie',
                 'class' => 'mr-sm-2'

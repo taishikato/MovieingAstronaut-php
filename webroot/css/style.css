@@ -48,6 +48,10 @@ a:hover {
     text-align: center;
 }
 
+.mb-2 {
+    margin-bottom: .5rem!important;
+}
+
 @media (min-width: 576px) {
     .mr-sm-2 {
         margin-right: .5rem!important;
