@@ -1,3 +1,10 @@
+    <footer class="text-muted">
+        <div class="container">
+            <p><a href="<?php echo $this->Html->url("/"); ?>">MOVIEING ASTRONAUT</a> is © taishikato</p>
+            <p><a href="http://taishikato.com/" target="_blank">Visit the homepage</a>.</p>
+        </div>
+    </footer>
+
     <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
     <script>
     // Initialize Firebase
