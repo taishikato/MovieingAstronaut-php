@@ -13,13 +13,10 @@
             'placeholder' => 'Reign Over Me',
             'type' => 'search',
             'div'  => array('class' => 'mb-2'),
-            'label' => array(
-                'text' =>'Search Movie',
-                'class' => 'mr-sm-2'
-            )
+            'label' => false
         )); ?>
         <?php echo $this->Form->end(array(
-            "label" => 'Search',
+            "label" => 'Search Movie',
             'div'   => false,
             'class' => 'btn btn-outline-primary'
         )); ?>
