@@ -1,7 +1,7 @@
     <footer class="text-muted">
         <div class="container">
-            <p><a class="hoverLine" href="<?php echo $this->Html->url("/"); ?>">MOVIEING ASTRONAUT</a> is © taishikato</p>
-            <p><a class="hoverLine" href="http://taishikato.com/" target="_blank">Visit the homepage</a>.</p>
+            <small><a class="hoverLine" href="<?php echo $this->Html->url("/"); ?>">MOVIEING ASTRONAUT</a> is © taishikato</small>
+            <small><a class="hoverLine" href="http://taishikato.com/" target="_blank">Visit the homepage</a>.</small>
         </div>
     </footer>
 

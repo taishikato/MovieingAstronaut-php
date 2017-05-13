@@ -7,7 +7,8 @@ a:hover {
 }
 
 .topWrapperMargin {
-    margin-top: 100px;
+    margin-top: 80px;
+    margin-bottom: 50%;
 }
 
 .list-pic {
@@ -54,6 +55,15 @@ a:hover {
 
 .hoverLine:hover {
     text-decoration: underline;
+}
+
+footer small {
+    display: block;
+    color: rgba(0,0,0,.44)!important;
+}
+
+small a {
+    color: rgba(0,0,0,.44)!important;
 }
 
 footer p, footer a {
