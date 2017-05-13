@@ -52,6 +52,14 @@ a:hover {
     margin-bottom: .5rem!important;
 }
 
+.hoverLine:hover {
+    text-decoration: underline;
+}
+
+footer p, footer a {
+    color: rgba(0,0,0,.44)!important;
+}
+
 @media (min-width: 576px) {
     .mr-sm-2 {
         margin-right: .5rem!important;
