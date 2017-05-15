@@ -16,13 +16,9 @@
 <body>
 <nav class="navbar navbar-static-top navbar-light navbar-fixed-top headerNav">
     <div class="container-fluid">
-        <button class="pull-xs-right navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">☰</button>
-            <span class="navbar-toggler-icon"></span>
-        </button>
         <a class="navbar-brand" href="<?php echo $this->Html->url("/"); ?>">
             <?php echo $this->Html->image('logo.png', array('alt' => 'MOVIEING ASTRONAUT', 'width' => '130px')); ?>
         </a>
-        <div class="collapse navbar-toggleable-md" id="navbarResponsive">
             <?php echo $this->element('nav_menu'); ?>
         </div>
     </div>
