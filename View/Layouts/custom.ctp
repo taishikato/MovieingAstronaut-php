@@ -11,6 +11,7 @@
     <?php echo $this->Html->css('bootstrap.min.css'); ?>
     <!-- Custom styles for this template -->
     <?php echo $this->Html->css("style"); ?>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 </head>
 <body>
 <nav class="navbar navbar-static-top navbar-light navbar-fixed-top headerNav">
