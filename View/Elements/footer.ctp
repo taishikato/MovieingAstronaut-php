@@ -21,11 +21,12 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <?php echo $this->Html->script('jquery.min.js'); ?>
+    <script src="https://code.jquery.com/jquery-3.0.0.min.js" integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0=" crossorigin="anonymous"></script>
     <?php echo $this->Html->script('tether.min.js'); ?>
     <?php echo $this->Html->script('config.js'); ?>
     <?php echo $this->Html->script('app.js'); ?>
     <?php echo $this->Html->script('bootstrap.min.js'); ?>
+
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
