@@ -78,6 +78,19 @@ footer {
     padding-bottom: 20px;
 }
 
+.btn-facebook {
+    color: #fff !important;
+}
+
+.btn-social.btn-lg>:first-child {
+    line-height: 70px;
+}
+
+.btnSubtext {
+    font-size: 12px;
+    display: block;
+}
+
 @media (min-width: 576px) {
     .mr-sm-2 {
         margin-right: .5rem!important;

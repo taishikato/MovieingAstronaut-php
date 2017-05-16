@@ -45,10 +45,28 @@
 <?php else: ?>
 <ul class="nav navbar-nav pull-xs-right">
     <li class="nav-item">
+        <?php
+        echo $this->Html->link(
+            'Sign in / Sign up',
+            '#',
+            array(
+                "class" => "nav-link",
+                'data-toggle' => 'modal',
+                'data-target' => '#startModal'
+            )
+        );
+        ?>
+    </li>
+</ul>
+
+<!--
+<ul class="nav navbar-nav pull-xs-right">
+    <li class="nav-item">
         <a href="#" id="signupWithFacebookBtn" class="nav-link">Sign Up</a>
     </li>
     <li class="nav-item">
         <a href="#" id="loginWithFacebookBtn" class="nav-link">Log In</a>
     </li>
 </ul>
+-->
 <?php endif; ?>

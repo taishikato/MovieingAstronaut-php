@@ -4,45 +4,95 @@ App::uses('AppController', 'Controller');
 App::uses('BlowfishPasswordHasher', 'Controller/Component/Auth');
 
 class UsersController extends AppController {
-    const LOGIN_ERROR_MSG = 'Failed to login😣';
+    const LOGIN_ERROR_MSG = 'Failed for some reasons😣';
 
     public $uses = array('User');
 
     public function beforeFilter()
     {
         parent::beforeFilter();
-        $this->Auth->allow('signupWithFacebook', 'loginWithFacebook', 'login', 'logout', 'index');
+        $this->Auth->allow('startWithFacebook', 'signupWithFacebook', 'loginWithFacebook', 'login', 'logout', 'index');
     }
 
-    public function signupWithFacebook()
+    public function startWithFacebook()
     {
-        if (!empty($this->User->checkUserExistence($this->request->data['User']['email']))) {
-            // メールアドレスでユーザー存在チェック
+        // postか確認
+        if (!$this->request->is('post')) {
             return $this->redirect($this->topRedirectOption);
         }
 
-        $this->User->create();
-        if ($this->request->data('User.facebook_id') != null) {
-            $this->request->data['User']['facebook_valid'] = 1;
+        // Facebook認証か確認
+        if ($this->request->data('User.facebook_id') === null) {
+            $this->Flash->error(self::LOGIN_ERROR_MSG,
+                array('key' => 'login_result')
+            );
+
+            return $this->redirect($this->topRedirectOption);
         }
 
-        // Save to Database
-        if ($this->User->save($this->request->data)) {
-            // Get User Data
-            $userData = $this->User->checkUserExistence($this->request->data['User']['email']);
-            $this->Auth->login($userData);
-
+        /**
+         * 以下Sign Up / Sign In処理
+         */
+        $userData = $this->User->findByFacebookId($this->request->data('User.facebook_id'));
+        if (empty($userData)) {
+            // Sign Up
+            $this->_signupWithFacebook($this->request);
+        } else {
+            // Sign In
+            $this->_signinWithFacebook($this->request, $userData);
         }
 
         return $this->redirect($this->Auth->redirectUrl());
     }
 
-    public function loginWithFacebook()
+    public function _signupWithFacebook($postData)
     {
-        if (!$this->request->is('post')) {
-            return $this->redirect($this->topRedirectOption);
+        $this->User->create();
+        if ($postData->data('User.facebook_id') != null) {
+            $postData->data['User']['facebook_valid'] = 1;
         }
 
+        // Save to Database
+        if ($this->User->save($postData->data)) {
+            // Get User Data
+            $userData = $this->User->checkUserExistence($postData->data['User']['email']);
+            $this->Auth->login($userData);
+
+        }
+    }
+
+    public function _signinWithFacebook($postData, $userData)
+    {
+        if ($this->Auth->login($userData)) {
+            /**
+             *  ユーザーのFacebook関連情報更新
+             */
+            $this->User->id = $this->Auth->user('User.id');
+            // 更新するカラム
+            $fieldList = array(
+                'facebook_token',
+                'facebook_id'
+            );
+            $data = array(
+                'User' => array(
+                    'facebook_token' => $postData->data('User.facebook_token'),
+                    'facebook_id'    => $postData->data('User.facebook_id')
+                )
+            );
+
+            // 情報をデータベースに保存
+            $this->User->save($data, array(
+                'fieldList' => $fieldList
+            ));
+        } else {
+            $this->Flash->error(self::LOGIN_ERROR_MSG,
+                array('key' => 'login_result')
+            );
+        }
+    }
+
+    public function loginWithFacebook()
+    {
         // Facebookログインじゃない場合
         if ($this->request->data('User.facebook_id') === null) {
             $this->Flash->error(self::LOGIN_ERROR_MSG,
