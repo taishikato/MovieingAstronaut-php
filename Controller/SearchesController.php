@@ -14,7 +14,7 @@ class SearchesController extends AppController {
     public function index()
     {
         if (!empty($_GET['title'])) {
-            $requestUrl = $this->omdbapiUrl . '/?t=' . urlencode($_GET['title']);
+            $requestUrl = $this->omdbapiUrl . '/?t=' . urlencode(h($_GET['title']));
             $result = $this->execApi($requestUrl);
             $this->set(compact('result'));
         }
