@@ -91,6 +91,10 @@ footer {
     display: block;
 }
 
+.srcColorLink {
+    color: #10dbe1 !important;
+}
+
 @media (min-width: 576px) {
     .mr-sm-2 {
         margin-right: .5rem!important;

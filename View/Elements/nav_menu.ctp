@@ -13,11 +13,11 @@
                         $userName,
                         'full_base'  => true
                     ),
-                    array('class' => 'nav-link')
+                    array('class' => array('nav-link', 'srcColorLink'))
                 ); ?>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true"><?php echo h($userName); ?></a>
+                <a class="nav-link dropdown-toggle srcColorLink" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true"><?php echo h($userName); ?></a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <?php echo $this->Html->link(
                         'Edit Profile',
@@ -26,7 +26,7 @@
                             'action'     => 'edit',
                             'full_base'  => true
                         ),
-                        array('class' => 'dropdown-item')
+                        array('class' => array('dropdown-item', 'srcColorLink'))
                     ); ?>
                     <?php echo $this->Html->link(
                         'Log Out',
@@ -35,7 +35,7 @@
                             'action'     => 'logout',
                             'full_base'  => true
                         ),
-                        array('class' => 'dropdown-item')
+                        array('class' => array('dropdown-item', 'srcColorLink'))
                     ); ?>
                 </div>
             </li>
@@ -50,7 +50,7 @@
             'Sign in / Sign up',
             '#',
             array(
-                "class" => "nav-link",
+                "class" => array("nav-link", 'srcColorLink'),
                 'data-toggle' => 'modal',
                 'data-target' => '#startModal'
             )
@@ -58,15 +58,4 @@
         ?>
     </li>
 </ul>
-
-<!--
-<ul class="nav navbar-nav pull-xs-right">
-    <li class="nav-item">
-        <a href="#" id="signupWithFacebookBtn" class="nav-link">Sign Up</a>
-    </li>
-    <li class="nav-item">
-        <a href="#" id="loginWithFacebookBtn" class="nav-link">Log In</a>
-    </li>
-</ul>
--->
 <?php endif; ?>
