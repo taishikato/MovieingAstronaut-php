@@ -91,58 +91,6 @@ class UsersController extends AppController {
         }
     }
 
-    public function loginWithFacebook()
-    {
-        // Facebookログインじゃない場合
-        if ($this->request->data('User.facebook_id') === null) {
-            $this->Flash->error(self::LOGIN_ERROR_MSG,
-                array('key' => 'login_result')
-            );
-
-            return $this->redirect($this->topRedirectOption);
-        }
-
-        // ユーザーが存在しない場合
-        $userData = $this->User->findByFacebookId($this->request->data('User.facebook_id'));
-        if (empty($userData)) {
-            $this->Flash->error(self::LOGIN_ERROR_MSG,
-                array('key' => 'login_result')
-            );
-
-            return $this->redirect($this->topRedirectOption);
-        }
-
-        // ログイン
-        if ($this->Auth->login($userData)) {
-            /**
-             *  ユーザーのFacebook関連情報更新
-             */
-            $this->User->id = $this->Auth->user('User.id');
-            // 更新するカラム
-            $fieldList = array(
-                'facebook_token',
-                'facebook_id'
-            );
-            $data = array(
-                'User' => array(
-                    'facebook_token' => $this->request->data('User.facebook_token'),
-                    'facebook_id'    => $this->request->data('User.facebook_id')
-                )
-            );
-
-            // 情報をデータベースに保存
-            $this->User->save($data, array(
-                'fieldList' => $fieldList
-            ));
-        } else {
-            $this->Flash->error(self::LOGIN_ERROR_MSG,
-                array('key' => 'login_result')
-            );
-        }
-
-        return $this->redirect($this->Auth->redirectUrl());
-    }
-
     public function edit()
     {
         if (!$this->request->is('post')) {
