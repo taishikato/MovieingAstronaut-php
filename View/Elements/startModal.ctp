@@ -12,6 +12,10 @@
                         <span class="fa fa-facebook"></span> Connect with Facebook
                         <span class="btnSubtext">We won’t post without asking</span>
                     </a>
+                    <a class="btn btn-lg btn-block btn-social btn-twitter" id="startWithFacebookBtn" href="#">
+                        <span class="fa fa-twitter"></span> Connect with Twitter
+                        <span class="btnSubtext">We won’t post without asking</span>
+                    </a>
                 </div>
             </div>
         </div>
