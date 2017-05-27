@@ -60,6 +60,21 @@ a:hover {
 .hoverLine:hover {
     text-decoration: underline;
 }
+/*
+.quoteCharacterImage {
+    display: inline-block;
+    margin-bottom: 2rem;
+    margin-right: 10px;
+}
+.quoteCharacterImage
+
+.quoteBox {
+    display: inline-block;
+}
+*/
+.quoteCharacterImage {
+    max-width: 85px;
+}
 
 footer small {
     display: block;
@@ -110,5 +125,12 @@ footer {
 @media (min-width: 544px) {
     .smallContainer {
         max-width: 576px;
+    }
+}
+
+@media (max-width: 743px) {
+    .quoteCharacterImage {
+        width: 35px;
+        height: 35px;
     }
 }
