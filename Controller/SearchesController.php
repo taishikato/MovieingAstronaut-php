@@ -14,7 +14,7 @@ class SearchesController extends AppController {
     public function index()
     {
         if (!empty($_GET['title'])) {
-            $requestUrl = $this->omdbapiUrl . '/?t=' . urlencode(h($_GET['title']));
+            $requestUrl = $this->omdbapiUrl . '&t=' . urlencode(h($_GET['title']));
             $result = $this->execApi($requestUrl);
             $this->set(compact('result'));
         }
@@ -22,11 +22,10 @@ class SearchesController extends AppController {
 
     function showList()
     {
-        $baseUrl = 'http://www.omdbapi.com';
         $result['Response'] = 'False';
         if (!empty($_GET['title'])) {
             $result = array();
-            $requestUrl = $baseUrl . '/?t=' . urlencode($_GET['title']);
+            $requestUrl = $this->omdbapiUrl . '&t=' . urlencode($_GET['title']);
             $response = file_get_contents($requestUrl);
             $result = json_decode($response, true);
         }
@@ -36,7 +35,7 @@ class SearchesController extends AppController {
 
     public function show($id = null)
     {
-        $requestUrl = $this->omdbapiUrl . '/?i=' . $id;
+        $requestUrl = $this->omdbapiUrl . '&i=' . $id;
         $result = $this->execApi($requestUrl);
         $this->set(compact('result'));
 

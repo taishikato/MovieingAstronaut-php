@@ -15,9 +15,8 @@ class TopsController extends AppController {
 
     public function index()
     {
-        $baseUrl = 'http://www.omdbapi.com';
         if (!empty($_GET['title'])) {
-            $requestUrl = $baseUrl . '/?t=' . urlencode(h($_GET['title']));
+            $requestUrl = $this->omdbapiUrl . '&t=' . urlencode(h($_GET['title']));
             $response = file_get_contents($requestUrl);
             $result = json_decode($response, true);
             $this->set(compact('result'));

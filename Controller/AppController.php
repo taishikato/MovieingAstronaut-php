@@ -38,7 +38,7 @@ class AppController extends Controller {
         'controller' => 'tops',
         'action'     => 'index'
     );
-    public $omdbapiUrl = 'http://www.omdbapi.com';
+    public $omdbapiUrl = 'http://www.omdbapi.com/?apikey=1b46575f';
 
     public $components = array(
         'Flash',
