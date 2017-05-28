@@ -17,7 +17,7 @@
 </head>
 <body>
 <nav class="navbar navbar-static-top navbar-light navbar-fixed-top headerNav">
-    <div class="container-fluid">
+    <div class="container">
         <a class="navbar-brand" href="<?php echo $this->Html->url("/"); ?>">
             <?php echo $this->Html->image('logo.png', array('alt' => 'MOVIEING ASTRONAUT', 'width' => '130px')); ?>
         </a>
