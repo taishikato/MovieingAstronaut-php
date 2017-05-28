@@ -39,6 +39,10 @@ a:hover {
     color: gray;
 }
 
+.quoteRight {
+    display: none;
+}
+
 .normalCard {
     float: none;
     width: 100%;
@@ -57,21 +61,24 @@ a:hover {
     margin-bottom: .5rem!important;
 }
 
+.lineLink, .lineLink:hover {
+    text-decoration: underline;
+}
+
+footer {
+    font-size: 80%;
+    line-height: 1.42857143;
+}
+
 .hoverLine:hover {
     text-decoration: underline;
 }
-/*
-.quoteCharacterImage {
-    display: inline-block;
-    margin-bottom: 2rem;
-    margin-right: 10px;
-}
-.quoteCharacterImage
 
-.quoteBox {
-    display: inline-block;
+.quoteBox:hover {
+    cursor: pointer;
+    background-color: #f9fafb;
 }
-*/
+
 .quoteCharacterImage {
     max-width: 85px;
 }
