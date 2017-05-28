@@ -25,7 +25,7 @@
         </div>
     </div>
 </nav>
-<div class="container topWrapperMargin smallContainer">
+<div class="container topWrapperMargin">
     <?php echo $this->Flash->render('login_result') ?>
 
     <?php if ($isLoggedIn === false): ?>
