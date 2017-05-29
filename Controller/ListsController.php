@@ -35,7 +35,7 @@ class ListsController extends AppController {
 
         $movieData = array();
         foreach ($seenMovieImdbs as $seenMovieImdb) {
-            $requestUrl = $this->omdbapiUrl . '/?i=' . $seenMovieImdb['SeenList']['imdb_id'];
+            $requestUrl = $this->omdbapiUrl . '&i=' . $seenMovieImdb['SeenList']['imdb_id'];
             $movieData[] = $this->execApi($requestUrl);
         }
         $this->set(compact('movieData'));
