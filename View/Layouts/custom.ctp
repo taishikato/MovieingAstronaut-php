@@ -25,13 +25,11 @@
         </div>
     </div>
 </nav>
-<div class="container topWrapperMargin">
-    <?php echo $this->Flash->render('login_result') ?>
+<?php echo $this->Flash->render('login_result') ?>
 
-    <?php if ($isLoggedIn === false): ?>
-        <?php echo $this->element('startModal'); ?>
-    <?php endif; ?>
+<?php if ($isLoggedIn === false): ?>
+    <?php echo $this->element('startModal'); ?>
+<?php endif; ?>
 
-    <?php echo $this->fetch('content'); ?>
-</div>
+<?php echo $this->fetch('content'); ?>
 <?php echo $this->element('footer'); ?>
