@@ -5,6 +5,19 @@
     <p class="lead">Actors: <?php echo $result['Actors']; ?></p>
   </div>
 </div>
+<div class="container">
+    <?php
+    echo $this->Html->link(
+        'Add Quote',
+        array(
+            'controller' => 'quotes',
+            'action'     => 'add',
+            $result['imdbID'],
+            'full_base'  => true
+        ),
+        array('escape' => false, 'class' => 'btn btn-outline-primary', 'role' => 'button', 'aria-pressed' => 'true')
+    ); ?>
+</div>
 <div class="container topWrapperMargin">
     <div id="accordion" role="tablist" aria-multiselectable="true">
         <div class="row">

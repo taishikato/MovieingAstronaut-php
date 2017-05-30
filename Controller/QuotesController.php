@@ -3,7 +3,7 @@
 App::uses('AppController', 'Controller');
 
 class QuotesController extends AppController {
-    public $uses = array('SeenList', 'User');
+    public $uses = array('Quote');
 
     public function beforeFilter()
     {
@@ -25,5 +25,13 @@ class QuotesController extends AppController {
         $result = $this->execApi($requestUrl);
         $this->set(compact('result'));
         // セリフテーブルからfindする
+    }
+
+    public function add($id = null) {
+        $mdbid = h($id);
+        $this->set(compact('mdbid'));
+        $this->request->data['Quote']['movie_id'] = $mdbid;
+        $this->request->data['Quote']['user_id'] = $this->Auth->user('User.id');
+        var_dump($this->request->data);
     }
 }
