@@ -83,6 +83,14 @@ footer {
     max-width: 85px;
 }
 
+.jumbotron {
+    color: white;
+}
+
+.jumbotron .container {
+    background: rgba(0,0,0,.6);
+}
+
 footer small {
     display: block;
     color: rgba(0,0,0,.44)!important;

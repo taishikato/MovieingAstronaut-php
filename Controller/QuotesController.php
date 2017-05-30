@@ -20,6 +20,10 @@ class QuotesController extends AppController {
      */
     public function m($id = null)
     {
+        $mdbid = h($id);
+        $requestUrl = $this->omdbapiUrl . '&i=' . $mdbid;
+        $result = $this->execApi($requestUrl);
+        $this->set(compact('result'));
         // セリフテーブルからfindする
     }
 }

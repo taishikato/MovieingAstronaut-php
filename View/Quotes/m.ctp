@@ -1,4 +1,10 @@
-<?php echo $this->element('jumbotron'); ?>
+<div class="jumbotron jumbotron-fluid" style="background: url(<?php echo $result['Poster']; ?>) no-repeat center; background-size: cover; margin-top: 55px;">
+  <div class="container">
+    <h1 class="display-3"><?php echo $result['Title']; ?></h1>
+    <small class="lead"><?php echo $result['Year']; ?></small>
+    <p class="lead">Actors: <?php echo $result['Actors']; ?></p>
+  </div>
+</div>
 <div class="container topWrapperMargin">
     <div id="accordion" role="tablist" aria-multiselectable="true">
         <div class="row">
