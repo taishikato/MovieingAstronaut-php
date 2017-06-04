@@ -3,6 +3,8 @@
 App::uses('AppController', 'Controller');
 
 class QuotesController extends AppController {
+    const SAVE_SUCCESS_MSG = 'Saved The Quote 🚀';
+
     public $uses = array('Quote');
 
     public function beforeFilter()
@@ -40,7 +42,10 @@ class QuotesController extends AppController {
         $this->request->data['Quote']['user_id'] = $this->Auth->user('User.id');
         // DBに保存
         $this->Quote->create();
-        $this->Quote->save($this->request->data);
-        var_dump($this->request->data);
+        if ($this->Quote->save($this->request->data)) {
+            $this->Flash->success(self::SAVE_SUCCESS_MSG,
+                array('key' => 'db_result')
+            );
+        }
     }
 }

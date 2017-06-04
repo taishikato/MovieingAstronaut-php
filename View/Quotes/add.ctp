@@ -1,4 +1,5 @@
 <div class="container topWrapperMargin smallContainer">
+<?php echo $this->Flash->render('db_result') ?>
     <div class="row">
         <div class="card card-block normalCard">
             <?php echo $this->Form->create('Quote', array(
