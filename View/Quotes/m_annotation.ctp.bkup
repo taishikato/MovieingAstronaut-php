@@ -21,7 +21,7 @@
 <div class="container topWrapperMargin">
     <div id="accordion" role="tablist" aria-multiselectable="true">
         <div class="row">
-            <div class="col-xs-12">
+            <div class="col-xs-7 quoteBox">
                 <div class="col-sm-2 col-md-3 col-lg-2" style="padding-top: 10px;">
                     <?php echo $this->Html->image('alison_yes_man.jpg',
                         array(
@@ -39,9 +39,12 @@
                     </blockquote>
                 </div>
             </div>
+            <div class="col-xs-5 quoteRight">
+            <p>Annotation</p>
+            </div>
         </div>
         <div class="row">
-            <div class="col-xs-12">
+            <div class="col-xs-7 quoteBox">
                 <div class="col-sm-2 col-md-3 col-lg-2" style="padding-top: 10px;">
                     <?php echo $this->Html->image('alison_yes_man.jpg',
                         array(
@@ -58,6 +61,9 @@
                         </footer>
                     </blockquote>
                 </div>
+            </div>
+            <div class="col-xs-5 quoteRight">
+            <p>Annotation 2</p>
             </div>
         </div>
     </div>
