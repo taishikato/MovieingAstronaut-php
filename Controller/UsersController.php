@@ -57,7 +57,6 @@ class UsersController extends AppController {
             // Get User Data
             $userData = $this->User->checkUserExistence($postData->data['User']['email']);
             $this->Auth->login($userData);
-
         }
     }
 
