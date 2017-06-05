@@ -1,4 +1,23 @@
-<div class="container topWrapperMargin smallContainer">
+<div class="jumbotron jumbotron-fluid" style="background: url(<?php echo $quoteMovieData['poster']; ?>) no-repeat center; background-size: cover; margin-top: 55px;">
+  <div class="container">
+    <h2><?php echo h($quoteMovieData['content']); ?></h2>
+    <p class="lead">by <?php echo h($quoteMovieData['speaker']); ?> in
+        <?php
+        echo $this->Html->link(
+            h($quoteMovieData['title']),
+            array(
+                'controller' => 'quotes',
+                'action'     => 'm',
+                $quoteMovieData['movie_id'],
+                'full_base'  => true
+            ),
+            array('escape' => false, 'class' => 'whiteLink lineLink', 'role' => 'button', 'aria-pressed' => 'true')
+        ); ?>
+    </p>
+  </div>
+</div>
+
+<div class="container">
     <div class="row">
         <div class="card card-block normalCard">
             <?php echo $this->Form->create(false,

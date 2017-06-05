@@ -35,6 +35,8 @@
                 'label' => array('text' =>'By')
             )); ?>
 
+            <?php echo $this->Form->hidden('title', array('value' => $result['Title'])); ?>
+
             <?php
             $options = array(
                 'label' => 'Save',
