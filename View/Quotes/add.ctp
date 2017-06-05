@@ -1,5 +1,16 @@
 <div class="container topWrapperMargin smallContainer">
-<?php echo $this->Flash->render('db_result') ?>
+    <?php echo $this->Flash->render('db_result') ?>
+    <?php
+    echo $this->Html->link(
+        'Go Back',
+        array(
+            'controller' => 'quotes',
+            'action'     => 'm',
+            $mdbid,
+            'full_base'  => true
+        ),
+        array('escape' => false, 'class' => 'btn btn-outline-info', 'role' => 'button', 'aria-pressed' => 'true')
+    ); ?>
     <div class="row">
         <div class="card card-block normalCard">
             <?php echo $this->Form->create('Quote', array(

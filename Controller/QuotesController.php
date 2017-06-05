@@ -27,6 +27,11 @@ class QuotesController extends AppController {
         $result = $this->execApi($requestUrl);
         $this->set(compact('result'));
         // セリフテーブルからfindする
+        $quotes = $this->Quote->find('all', array(
+            'conditions' => array('Quote.movie_id' => $mdbid),
+            'fields'     => array('Quote.id', 'Quote.content', 'Quote.speaker')
+        ));
+        $this->set(compact('quotes'));
     }
 
     public function add($id = null) {

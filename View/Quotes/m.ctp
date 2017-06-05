@@ -22,42 +22,17 @@
     <div id="accordion" role="tablist" aria-multiselectable="true">
         <div class="row">
             <div class="col-xs-12">
-                <div class="col-sm-2 col-md-3 col-lg-2" style="padding-top: 10px;">
-                    <?php echo $this->Html->image('alison_yes_man.jpg',
-                        array(
-                            'class' => 'img-circle quoteCharacterImage'
-                        )
-                    ); ?>
-                </div>
-                <div class="col-sm-10 col-md-9 col-lg-10">
+            <?php foreach ($quotes as $quote): ?>
+                <div class="col-sm-12 col-md-12 col-lg-12">
                     <blockquote class="blockquote">
-                        <p>The World is a Playground</p>
+                        <p><?php echo h($quote['Quote']['content']); ?></p>
                         <footer>
-                            <cite tilte="">by Alison at 2:01</cite>
+                            <cite tilte="">by <?php echo h($quote['Quote']['speaker']); ?> at 2:01</cite>
                             <a href="#" class="lineLink">edit</a>
                         </footer>
                     </blockquote>
                 </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12">
-                <div class="col-sm-2 col-md-3 col-lg-2" style="padding-top: 10px;">
-                    <?php echo $this->Html->image('alison_yes_man.jpg',
-                        array(
-                            'class' => 'img-circle quoteCharacterImage'
-                        )
-                    ); ?>
-                </div>
-                <div class="col-sm-10 col-md-9 col-lg-10">
-                    <blockquote class="blockquote">
-                        <p>The World is a Playground</p>
-                        <footer>
-                            <cite tilte="">by Alison at 2:01</cite>
-                            <a href="#" class="lineLink">edit</a>
-                        </footer>
-                    </blockquote>
-                </div>
+            <?php endforeach; ?>
             </div>
         </div>
     </div>
