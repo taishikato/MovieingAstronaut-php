@@ -51,4 +51,9 @@ $(function(){
     var startWithFacebookBtn = document.getElementById('startWithFacebookBtn');
     startWithFacebookBtn.addEventListener('click', startWithFacebook, false);
   }
+
+  if ($('#startWithFacebookBtnLoginView')[0]) {
+    var startWithFacebookBtn = document.getElementById('startWithFacebookBtnLoginView');
+    startWithFacebookBtn.addEventListener('click', startWithFacebook, false);
+  }
 });
