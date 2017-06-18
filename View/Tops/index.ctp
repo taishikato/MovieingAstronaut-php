@@ -30,7 +30,7 @@
             <?php echo $this->Form->input("title", array(
                 'class' => 'form-control mb-2 mr-sm-2 mb-sm-0',
                 'id'    => 'inlineFormInput',
-                'placeholder' => 'Reign Over Me',
+                'placeholder' => 'Yes Man',
                 'type' => 'search',
                 'div'  => array('class' => 'mb-2'),
                 'label' => false
