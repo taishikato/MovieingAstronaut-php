@@ -1,4 +1,5 @@
 <div class="container topWrapperMargin smallContainer">
+    <div class="col-xs-12"">
     <?php echo $this->Form->create('User', array(
         'type'  => 'post',
         'url' => array('controller' => 'users', 'action' => 'edit'),
@@ -26,4 +27,5 @@
     );
     echo $this->Form->end($options);
     ?>
+    </div>
 </div>

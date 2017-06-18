@@ -8,8 +8,8 @@
                 <?php echo $this->Html->link(
                     'List',
                     array(
-                        'controller' => 'lists',
-                        'action'     => 'showSeenList',
+                        'controller' => 'quotes',
+                        'action'     => 'likeList',
                         $userName,
                         'full_base'  => true
                     ),

@@ -89,6 +89,7 @@ footer {
 
 .jumbotron .container {
     background: rgba(0,0,0,.6);
+    padding: 20px;
 }
 
 footer small {
@@ -123,6 +124,10 @@ footer {
 
 .srcColorLink {
     color: #10dbe1 !important;
+}
+
+.whiteLink {
+    color: #fff;
 }
 
 @media (min-width: 576px) {
