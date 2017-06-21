@@ -23,24 +23,26 @@ class TopsController extends AppController {
         }
 
         // Quoteテーブルから最新情報取得
-        $quote = $this->Quote->find('first', array(
-            array('fields' => 'MAX(Thread.id) as max_id'),
-            'conditions' => array('Quote.created <' => date('Y-m-d H:i:s')),
-            'order'      => array('Quote.created' => 'desc')
+        $quotes = $this->Quote->find('all', array(
+            'order'  => array('Quote.created' => 'DESC'),
+            'limit'  => 10
         ));
-        // APIで画像取得
-        $requestUrl = $this->omdbapiUrl . '&i=' . $quote['Quote']['movie_id'];
-        $result = $this->execApi($requestUrl);
 
         $quoteMovieData = array();
-        $quoteMovieData = array(
-            'id' => $quote['Quote']['id'],
-            'content' => $quote['Quote']['content'],
-            'poster'  => $result['Poster'],
-            'title'   => $quote['Quote']['title'],
-            'movie_id' => $quote['Quote']['movie_id'],
-            'speaker' => $quote['Quote']['speaker']
-        );
+        foreach ($quotes as $quote) {
+            $requestUrl = $this->omdbapiUrl . '&i=' . $quote['Quote']['movie_id'];
+            $result = $this->execApi($requestUrl);
+
+            $quoteMovieData[] = array(
+                'id' => $quote['Quote']['id'],
+                'content' => $quote['Quote']['content'],
+                'poster'  => $result['Poster'],
+                'title'   => $quote['Quote']['title'],
+                'movie_id' => $quote['Quote']['movie_id'],
+                'speaker' => $quote['Quote']['speaker']
+            );
+        }
+
         $this->set(compact('quoteMovieData'));
     }
 }
