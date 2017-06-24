@@ -5,12 +5,12 @@ App::uses('AppController', 'Controller');
 class QuotesController extends AppController {
     const SAVE_SUCCESS_MSG = 'Saved The Quote 🚀';
 
-    public $uses = array('Quote', 'LikeQuote');
+    public $uses = array('Quote', 'LikeQuote', 'Comment', 'User');
 
     public function beforeFilter()
     {
         parent::beforeFilter();
-        $this->Auth->allow('m');
+        $this->Auth->allow('m', 'd');
     }
 
     public function index()
@@ -101,5 +101,46 @@ class QuotesController extends AppController {
         }
 
         $this->set(compact('likeQuotes'));
+    }
+
+    /**
+     * Quote詳細画面
+     */
+    public function d($id = null)
+    {
+        // Quote情報取得
+        $quote = $this->Quote->find('first', array(
+            'conditions' => array('Quote.id' => $id)
+        ));
+        $requestUrl = $this->omdbapiUrl . '&i=' . $quote['Quote']['movie_id'];
+        $result = $this->execApi($requestUrl);
+
+        // Comment取得
+        $comments = $this->Comment->find('all', array(
+            'conditions' => array('Comment.movie_id' => $quote['Quote']['movie_id']),
+            'order'  => array('created' => 'desc')
+        ));
+
+        $commentData = array();
+        $i = 0;
+        foreach ($comments as $comment) {
+            $commentData[$i]['Comment'] = $comment['Comment'];
+            $user = $this->User->find('first', array(
+                'conditions' => array('User.id' => $comment['Comment']['user_id']),
+                'fields'     => array('User.id', 'User.username')
+            ));
+            $commentData[$i]['User']    = $user['User'];
+            $i++;
+        }
+
+        $this->set(compact('quote', 'result', 'commentData'));
+    }
+
+    public function addComment($id = null)
+    {
+        // postか確認
+        if (!$this->request->is('post')) {
+            return false;
+        }
     }
 }
