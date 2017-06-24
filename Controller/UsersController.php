@@ -5,6 +5,7 @@ App::uses('BlowfishPasswordHasher', 'Controller/Component/Auth');
 
 class UsersController extends AppController {
     const LOGIN_ERROR_MSG = 'Failed for some reasons😣';
+    const EDIT_ERROR_MSG = 'This username is already taken.. Please try again.';
 
     public $uses = array('User');
 
@@ -52,12 +53,21 @@ class UsersController extends AppController {
             $postData->data['User']['facebook_valid'] = 1;
         }
 
+        // make default user name
+        $defaultUserName = $this->_makeDefaultUserName($postData->data['User']['email']);
+        $postData->data['User']['username'] = $defaultUserName;
+
         // Save to Database
         if ($this->User->save($postData->data)) {
             // Get User Data
             $userData = $this->User->checkUserExistence($postData->data['User']['email']);
             $this->Auth->login($userData);
         }
+    }
+
+    public function _makeDefaultUserName($email)
+    {
+        return 'user_' . substr(hash('sha256', $email . time()), 0, 10);
     }
 
     public function _signinWithFacebook($postData, $userData)
@@ -111,6 +121,13 @@ class UsersController extends AppController {
          */
         $this->User->id = $this->Auth->user('User.id');
         $fieldList = array('username');
+        if (!empty($this->User->checkUserExistenceByUsername($this->request->data('User.username')))) {
+            $this->Flash->error(self::EDIT_ERROR_MSG,
+                array('key' => 'edit_result')
+            );
+            return false;
+        }
+
         $this->User->save($this->request->data,
             array('fieldList' => $fieldList)
         );

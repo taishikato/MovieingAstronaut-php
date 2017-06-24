@@ -1,4 +1,5 @@
 <div class="container topWrapperMargin smallContainer">
+    <?php echo $this->Flash->render('edit_result') ?>
     <div class="col-xs-12"">
     <?php echo $this->Form->create('User', array(
         'type'  => 'post',
