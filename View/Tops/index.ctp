@@ -1,6 +1,17 @@
 <div class="jumbotron jumbotron-fluid" style="background: url(<?php echo $quoteMovieData[0]['poster']; ?>) no-repeat center; background-size: cover; margin-top: 55px;">
   <div class="container">
-    <h2><?php echo h($quoteMovieData[0]['content']); ?></h2>
+    <h2>
+        <?php echo $this->Html->link(
+            h($quoteMovieData[0]['content']),
+            array(
+                'controller' => 'quotes',
+                'action'     => 'd',
+                $quoteMovieData[0]['id'],
+                'full_base'  => true
+            ),
+            array('escape' => false, 'class' => 'whiteLink')
+        ); ?>
+    </h2>
     <p class="lead">by <?php echo h($quoteMovieData[0]['speaker']); ?> in
         <?php
         echo $this->Html->link(
@@ -47,7 +58,19 @@
     <?php foreach($quoteMovieData as $quoteMovie): ?>
         <div class="card card-inverse recentPost" style="background-image: url(<?php echo $quoteMovie['poster']; ?>); border-color: #333;">
             <div class="card-block">
-                <h3 class="card-title"><?php echo h($quoteMovie['content']); ?></h3>
+                <h3 class="card-title">
+                    <?php
+                    echo $this->Html->link(
+                        h($quoteMovie['content']),
+                        array(
+                            'controller' => 'quotes',
+                            'action'     => 'd',
+                            $quoteMovie['id'],
+                            'full_base'  => true
+                        ),
+                        array('escape' => false, 'class' => 'whiteLink')
+                    ); ?>
+                </h3>
                 <p class="card-text">by <?php echo h($quoteMovie['speaker']); ?> in
                 <?php
                 echo $this->Html->link(

@@ -6,6 +6,7 @@ App::uses('BlowfishPasswordHasher', 'Controller/Component/Auth');
 class UsersController extends AppController {
     const LOGIN_ERROR_MSG = 'Failed for some reasons😣';
     const EDIT_ERROR_MSG = 'This username is already taken.. Please try again.';
+    const EDIT_SCCS_MGS = 'Saved Successfully.';
 
     public $uses = array('User');
 
@@ -131,6 +132,10 @@ class UsersController extends AppController {
         $this->User->save($this->request->data,
             array('fieldList' => $fieldList)
         );
+        $this->Flash->success(self::EDIT_SCCS_MGS,
+            array('key' => 'edit_result')
+        );
+
         // フォームの値をDBから取得
         $userData = $this->User->findById($this->Auth->user('User.id'), array('id', 'username'));
         $this->request->data = h($userData);
