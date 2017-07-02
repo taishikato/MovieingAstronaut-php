@@ -81,7 +81,7 @@
                         $quoteMovie['movie_id'],
                         'full_base'  => true
                     ),
-                    array('escape' => false, 'class' => 'whiteLink lineLink', 'role' => 'button', 'aria-pressed' => 'true')
+                    array('escape' => false, 'class' => 'whiteLink', 'role' => 'button', 'aria-pressed' => 'true')
                 ); ?>
                 </p>
                 <!--<a href="#" class="btn btn-primary">Go somewhere</a>-->
