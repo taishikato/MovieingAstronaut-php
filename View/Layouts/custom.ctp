@@ -2,6 +2,7 @@
 <html>
 <head>
     <?php echo $this->Html->charset(); ?>
+    <title><?php echo $title_for_layout; ?></title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -25,13 +26,11 @@
         </div>
     </div>
 </nav>
-<div class="container topWrapperMargin smallContainer">
-    <?php echo $this->Flash->render('login_result') ?>
+<?php echo $this->Flash->render('login_result') ?>
 
-    <?php if ($isLoggedIn === false): ?>
-        <?php echo $this->element('startModal'); ?>
-    <?php endif; ?>
+<?php if ($isLoggedIn === false): ?>
+    <?php echo $this->element('startModal'); ?>
+<?php endif; ?>
 
-    <?php echo $this->fetch('content'); ?>
-</div>
+<?php echo $this->fetch('content'); ?>
 <?php echo $this->element('footer'); ?>

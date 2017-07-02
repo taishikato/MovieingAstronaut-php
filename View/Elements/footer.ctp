@@ -37,5 +37,13 @@
       ga('send', 'pageview');
 
     </script>
+    <script>
+    $(function(){
+        $('.quoteBox').click(function() {
+            $('.quoteRight').hide();
+            $('+.quoteRight', this).show();
+        });
+    });
+    </script>
 </body>
 </html>

@@ -34,6 +34,7 @@ class AppController extends Controller {
     public $layout = 'custom';
     public $isLoggedIn = false;
     public $loginUser;
+    public $title_for_layout = 'MOVIEING ASTRONAUT';
     public $topRedirectOption = array(
         'controller' => 'tops',
         'action'     => 'index'
@@ -71,6 +72,9 @@ class AppController extends Controller {
         // ログインユーザー情報送信
         $this->loginUser = $this->Auth->user();
         $this->set('loginUser', $this->loginUser);
+
+        // title設定
+        $this->set('title_for_layout', $this->title_for_layout);
     }
 
     public function execApi($requestUrl)

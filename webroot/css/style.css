@@ -39,6 +39,10 @@ a:hover {
     color: gray;
 }
 
+.quoteRight {
+    display: none;
+}
+
 .normalCard {
     float: none;
     width: 100%;
@@ -57,8 +61,35 @@ a:hover {
     margin-bottom: .5rem!important;
 }
 
+.lineLink, .lineLink:hover {
+    text-decoration: underline;
+}
+
+footer {
+    font-size: 80%;
+    line-height: 1.42857143;
+}
+
 .hoverLine:hover {
     text-decoration: underline;
+}
+
+.quoteBox:hover {
+    cursor: pointer;
+    background-color: #f9fafb;
+}
+
+.quoteCharacterImage {
+    max-width: 85px;
+}
+
+.jumbotron {
+    color: white;
+}
+
+.jumbotron .container {
+    background: rgba(0,0,0,.6);
+    padding: 20px;
 }
 
 footer small {
@@ -95,6 +126,20 @@ footer {
     color: #10dbe1 !important;
 }
 
+.whiteLink {
+    color: #fff;
+}
+
+.recentPost {
+    background: no-repeat center;
+    background-size: cover;
+    margin-bottom: 0;
+}
+
+.recentPost .card-block {
+    background-color: rgba(0, 0 ,0, 0.7);
+}
+
 @media (min-width: 576px) {
     .mr-sm-2 {
         margin-right: .5rem!important;
@@ -110,5 +155,12 @@ footer {
 @media (min-width: 544px) {
     .smallContainer {
         max-width: 576px;
+    }
+}
+
+@media (max-width: 743px) {
+    .quoteCharacterImage {
+        width: 35px;
+        height: 35px;
     }
 }
